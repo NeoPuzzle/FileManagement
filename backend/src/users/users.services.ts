@@ -11,4 +11,8 @@ export class UsersService {
     addUser(user: Users) {
         return this.usersRepository.addUser(user);
     }
+
+    getusers() {
+        return this.usersRepository.getUsers();
+    }
 }
