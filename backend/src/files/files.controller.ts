@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post } from "@nestjs/common";
 import { FilesService } from "./files.service";
 import { CreateFileDto } from "./files.dto";
 import { Files } from "./files.entity";
@@ -13,4 +13,10 @@ export class FilesController {
     async createFile(@Body() createFileDto: CreateFileDto): Promise<Files> {
         return this.filesService.createFile(createFileDto);
     }
+
+    @Get()
+    async getFiles(): Promise<Files[]> {
+        return this.filesService.getFiles();
+    }
+
 }

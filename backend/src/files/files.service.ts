@@ -14,4 +14,8 @@ export class FilesService {
         const newFile = this.filesRepository.create(createFileDto);
         return this.filesRepository.save(newFile);
     }
+    
+    async getFiles(): Promise<Files[]> {
+        return this.filesRepository.find();
+    }
 }
