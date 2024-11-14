@@ -20,4 +20,9 @@ export class UsersRepository {
         if (!users.length) throw new NotFoundException('No users found');
         return users;
     }
+
+    getUserByName(name: string) {
+        return this.userRepository.findOneBy({name});
+        
+    }
 }
