@@ -1,8 +1,8 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Files } from "./files.entity";
 import { Repository } from "typeorm";
-import { CreateFileDto } from "./files.dto";
+import { CreateFileDto, UpdateFileDto } from "./files.dto";
 
 @Injectable()
 export class FilesService {
@@ -14,8 +14,17 @@ export class FilesService {
         const newFile = this.filesRepository.create(createFileDto);
         return this.filesRepository.save(newFile);
     }
-    
+
     async getFiles(): Promise<Files[]> {
         return this.filesRepository.find();
+    }
+
+    async updateFiles(id: string, updateFileDto: UpdateFileDto): Promise<Files> {
+        const file = await this.filesRepository.findOne({where: {id}});
+        if (file){
+            Object.assign(file, updateFileDto);
+            return this.filesRepository.save(file);
+        }
+        return null;
     }
 }

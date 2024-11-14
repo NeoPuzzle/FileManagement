@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString, Min } from "class-validator";
+import { IsNotEmpty, IsNumber, IsOptional, IsString, Min } from "class-validator";
 
 export class CreateFileDto {
     @IsNotEmpty()
@@ -14,4 +14,20 @@ export class CreateFileDto {
     @IsNumber()
     @Min(1)
     quantity: number;
+}
+
+export class UpdateFileDto {
+    @IsOptional()
+    @IsNumber()
+    @Min(0)
+    weight?: number;
+
+    @IsOptional()
+    @IsString()
+    type?: string;
+
+    @IsOptional()
+    @IsNumber()
+    @Min(1)
+    quantity?:number;
 }

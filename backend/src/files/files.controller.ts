@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Put } from "@nestjs/common";
 import { FilesService } from "./files.service";
-import { CreateFileDto } from "./files.dto";
+import { CreateFileDto, UpdateFileDto } from "./files.dto";
 import { Files } from "./files.entity";
 
 @Controller('files')
@@ -19,4 +19,11 @@ export class FilesController {
         return this.filesService.getFiles();
     }
 
+    @Put(':id')
+    async updateFile(
+        @Param('id') id:string,
+        @Body() updateFileDto: UpdateFileDto):Promise<Files> {
+            return this.filesService.updateFiles(id, updateFileDto);
+        }
+ 
 }
