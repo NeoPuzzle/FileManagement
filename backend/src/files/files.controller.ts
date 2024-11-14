@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
 import { FilesService } from "./files.service";
 import { CreateFileDto, UpdateFileDto } from "./files.dto";
 import { Files } from "./files.entity";
@@ -25,5 +25,11 @@ export class FilesController {
         @Body() updateFileDto: UpdateFileDto):Promise<Files> {
             return this.filesService.updateFiles(id, updateFileDto);
         }
- 
+    
+    @Delete(':id')
+    async deleteFile(
+        @Param('id') id: string): Promise<void> {
+        return this.filesService.deleteFile(id);
+    }
+
 }

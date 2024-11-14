@@ -27,4 +27,8 @@ export class FilesService {
         }
         return null;
     }
+
+    async deleteFile(id: string): Promise<void> {
+        await this.filesRepository.delete(id);
+    }
 }
