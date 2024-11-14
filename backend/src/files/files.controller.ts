@@ -32,4 +32,9 @@ export class FilesController {
         return this.filesService.deleteFile(id);
     }
 
+    @Get('accumulated')
+    async calculateAccumulated(){
+        return this.filesService.calculateAccumulated();
+    }
+
 }

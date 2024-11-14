@@ -31,4 +31,11 @@ export class FilesService {
     async deleteFile(id: string): Promise<void> {
         await this.filesRepository.delete(id);
     }
+
+    async calculateAccumulated() {
+        const files = await this.filesRepository.find();
+        const totalWeight = files.reduce((sum, file) => sum + file.weight, 0)
+        const totalQuantity = files.reduce((sum, file) => sum + file.quantity, 0)
+        return { totalWeight, totalQuantity };
+    }
 }
