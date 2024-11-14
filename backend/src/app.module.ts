@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { FilesModule } from './files/files.module';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
       useFactory: (configService: ConfigService) => configService.get('typeorm')
     }),
     FilesModule,
+    UsersModule,
     AuthModule,
     JwtModule.register({
       global: true,
