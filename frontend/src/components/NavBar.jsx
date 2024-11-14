@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Navbar</a>
+        <a className="navbar-brand" href="#">Maxillaris</a>
         <button 
           className="navbar-toggler" 
           type="button" 
@@ -18,10 +18,10 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
+              <a className="nav-link active" aria-current="page" href="#">Login</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Link</a>
+              <a className="nav-link" href="#">Files</a>
             </li>
             <li className="nav-item dropdown">
               <a 
@@ -30,7 +30,7 @@ const NavBar = () => {
                 role="button" 
                 data-bs-toggle="dropdown" 
                 aria-expanded="false">
-                Dropdown
+                Citas
               </a>
               <ul className="dropdown-menu">
                 <li><a className="dropdown-item" href="#">Action</a></li>
@@ -40,7 +40,7 @@ const NavBar = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+              <a className="nav-link disabled" aria-disabled="true">Catalogo</a>
             </li>
           </ul>
           <form className="d-flex" role="search">
