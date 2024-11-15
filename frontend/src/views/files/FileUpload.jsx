@@ -33,11 +33,14 @@ const FileUpload = () => {
     }
 
     try {
-      const fileData = {
-        type: fileDetails.type,
-        size: fileDetails.size,
-        quantity: fileDetails.quantity,
-      };
+      const fileData =  new FormData();
+      fileData.append("type", fileDetails.type)
+      fileData.append("size", fileDetails.size)
+      fileData.append("quantity", fileDetails.quantity)
+        // type: fileDetails.type,
+        // size: fileDetails.size,
+        // quantity: fileDetails.quantity,
+      // };
 
       console.log("Estado del archivo: ",fileData);
       

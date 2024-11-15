@@ -34,6 +34,7 @@ export const createFile = async(fileData) => {
         return response.data;
     } catch (error) {
         console.error("Error al crear archivo: ", error);
+        console.error("Detalle: ", error.response);
         throw error;
     }
 };

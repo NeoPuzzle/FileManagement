@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from "@nes
 import { FilesService } from "./files.service";
 import { CreateFileDto, UpdateFileDto } from "./files.dto";
 import { Files } from "./files.entity";
-import { AuthGuard } from "src/auth/guards/auth.guard";
+import { AuthGuard } from "../auth/guards/auth.guard";
 
 @Controller('files')
 export class FilesController {
