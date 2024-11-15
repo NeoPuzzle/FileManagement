@@ -1,0 +1,46 @@
+.formContainer {
+    background-color: rgb(35, 170, 194);
+    width: 300px;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: white;
+}
+
+.title{
+    text-align: center;
+    margin: 0;
+    padding: 0.5em;
+}
+
+
+.formInput {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.formButton {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(40, 18, 2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.formButton:hover {
+    background-color: rgb(106, 77, 56);
+}
+
+.back{
+    padding: 2%;
+    background-image: url('https://cdn.prod.website-files.com/660d6d21e7f5e5062f7e15bf/66438a2b0b72d7edacce5453_guia-todo-sobre-administracion-clinicas-dentales.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
