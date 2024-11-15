@@ -12,7 +12,9 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use((config) => {
     const token = getToken();
-    if (token) config.headers["Authorization"] = `Bearer ${token}`;
+    console.log("El token: ",token);
+    
+    if (token) config.headers["authorization"] = `Bearer ${token}`;
     return config;
 });
 

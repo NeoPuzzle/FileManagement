@@ -4,6 +4,7 @@ import React from 'react';
 import NavBar from './components/App/NavBar'
 import { Route, Routes } from 'react-router-dom';
 import Login from './views/login/login';
+import FileList from './views/files/FilesList';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     <div className="content">
     <Routes>
       <Route path="/login" element={<Login />}/>
+      <Route path='/files' element={<FileList/>} />
     </Routes>
     </div>
     

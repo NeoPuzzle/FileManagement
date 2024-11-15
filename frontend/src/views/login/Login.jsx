@@ -32,9 +32,9 @@ const Login = () => {
                 const fetchLoginData = async () => {
                     try {
                         const response = await login(form.username, form.password);
-                        console.log("response: ", response);
+                        console.log("response: ", response.token);
                         dispatch(setUserActive(response));
-                        navigate("/");
+                        navigate("/files");
                     } catch(error){
                         alert("Datos incorrectos");
                         throw Error("Hubo un error al cargar datos", error);

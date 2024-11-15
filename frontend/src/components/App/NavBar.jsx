@@ -22,7 +22,7 @@ const NavBar = () => {
             <NavLink className="nav-link active" aria-current="page" to="/login">Login</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Files</a>
+              <NavLink className="nav-link" to="/files">Files</NavLink>
             </li>
             <li className="nav-item dropdown">
               <a 
