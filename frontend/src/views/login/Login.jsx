@@ -1,12 +1,15 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { validateLogin } from "../../helpers/validateLogin";
 import { useState } from "react";
-import axios from "axios";
 import styles from "../../styles/Login/Login.module.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserActive } from "../../redux/reducer";
+import axios from "axios";
+import { login } from "../../api/auth";
+
+// import { login } from "../../api/auth";
 
 const Login = () => {
 
@@ -28,10 +31,10 @@ const Login = () => {
             onSubmit={(form,{setSubmitting }) => {
                 const fetchLoginData = async () => {
                     try {
-                        const response = await axios.post("http://localhost:3000/auth/signin", form)
-                        dispatch(setUserActive(response.data.user));
+                        const response = await login(form.username, form.password);
+                        console.log("response: ", response);
+                        dispatch(setUserActive(response));
                         navigate("/");
-                        return response.data;
                     } catch(error){
                         alert("Datos incorrectos");
                         throw Error("Hubo un error al cargar datos", error);
