@@ -1,5 +1,7 @@
 import './App.css'
-import NavBar from './components/NavBar'
+import Footer from './components/App/Footer'
+import React from 'react'; 
+import NavBar from './components/App/NavBar'
 
 function App() {
 
@@ -7,9 +9,11 @@ function App() {
     <>
     <div className="container">
     <NavBar/>
-
+    
     </div>
-      
+    <div>
+    <Footer />
+    </div>
     </>
   )
 }
