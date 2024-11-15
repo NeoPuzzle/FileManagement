@@ -1,5 +1,5 @@
 .formContainer {
-    background-color: rgb(141, 83, 42);
+    background-color: rgb(35, 170, 194);
     width: 300px;
     margin: 10% auto;
     padding: 20px;
@@ -40,7 +40,7 @@
 
 .back{
     padding: 2%;
-    background-image: url('https://www.lavanguardia.com/files/og_thumbnail/uploads/2019/09/09/5f15ff0e90ddd.jpeg');
+    background-image: url('https://cdn.prod.website-files.com/660d6d21e7f5e5062f7e15bf/66438a2b0b72d7edacce5453_guia-todo-sobre-administracion-clinicas-dentales.webp');
     background-size: cover;
     background-repeat: no-repeat;
 }

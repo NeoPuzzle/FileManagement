@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { validateLogin } from "../../helpers/validateLogin";
 import { useState } from "react";
 import axios from "axios";
-import styles from "../../styles/Login/Register.module.css";
+import styles from "../../styles/Login/Login.module.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -28,7 +28,7 @@ const Login = () => {
             onSubmit={(form,{setSubmitting }) => {
                 const fetchLoginData = async () => {
                     try {
-                        const response = await axios.post("http://localhost:3000/users/login", form)
+                        const response = await axios.post("http://localhost:3000/auth/signin", form)
                         dispatch(setUserActive(response.data.user));
                         navigate("/");
                         return response.data;
@@ -57,7 +57,7 @@ const Login = () => {
                     <ErrorMessage name="password" component="div" style={{color: 'red'}}/>
                 </div>
                 <button type='submit' className={styles.formButton} disabled={!isValid || isSubmitting}>Login</button>
-                <p>¿No tienes una cuenta? <Link to={"/register"} style={{ textDecoration: 'none', color: 'inherit' }}>Registrate Aqui</Link></p>
+                <p>¿No tienes una cuenta? <Link to={"#"} style={{ textDecoration: 'none', color: 'inherit' }}>Registrate Aqui</Link></p>
             </Form>
             )}
 
