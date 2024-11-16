@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createFile } from "../../api/files";
+import { useNavigate } from "react-router-dom";
 
 const FileUpload = () => {
   const [fileDetails, setFileDetails] = useState({
@@ -8,6 +9,8 @@ const FileUpload = () => {
     size: 0,
     quantity: 1,
   });
+
+  const navigate = useNavigate();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -27,28 +30,30 @@ const FileUpload = () => {
   };
 
   const handleUpload = async () => {
-    if (!fileDetails.type || fileDetails.size === 0) {
+    if (!fileDetails.type || fileDetails.size <= 0) {
       alert("Selecciona un achivo valido")
       return
     }
 
+    if (fileDetails.quantity < 1) {
+      alert("La cantidad debe ser al menos 1");
+      return;
+    }
+
     try {
-      const fileData =  new FormData();
-      fileData.append("type", fileDetails.type)
-      fileData.append("size", fileDetails.size)
-      fileData.append("quantity", fileDetails.quantity)
-        // type: fileDetails.type,
-        // size: fileDetails.size,
-        // quantity: fileDetails.quantity,
-      // };
+      const fileData =  {
+      type: fileDetails.type,
+      weight: Number(fileDetails.size),
+      quantity: Number(fileDetails.quantity)
+      };
 
       console.log("Estado del archivo: ",fileData);
-      
-
-      const response = await createFile(fileData);
+      const response = createFile(fileData);
 
       if (response) {
         alert("archivo subido exitosamente!!!");
+        navigate("/files");
+        
         setFileDetails({
           name: "",
           type: "",

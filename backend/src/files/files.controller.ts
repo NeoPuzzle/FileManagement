@@ -13,6 +13,7 @@ export class FilesController {
     @UseGuards(AuthGuard)
     @Post()
     async createFile(@Body() createFileDto: CreateFileDto): Promise<Files> {
+        console.log("Datos de front", createFileDto);
         return this.filesService.createFile(createFileDto);
     }
 
