@@ -17,17 +17,17 @@ export class CreateFileDto {
 }
 
 export class UpdateFileDto {
-    // @IsOptional()
-    // @IsNumber()
-    // @Min(0)
+    @IsOptional()
+    @IsNumber()
+    @Min(0)
     weight?: number;
 
-    // @IsOptional()
-    // @IsString()
+    @IsOptional()
+    @IsString()
     type?: string;
 
-    // @IsOptional()
-    // @IsNumber()
-    // @Min(1)
+    @IsOptional()
+    @IsNumber()
+    @Min(1)
     quantity?:number;
 }
