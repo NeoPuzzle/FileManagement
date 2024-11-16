@@ -1,3 +1,4 @@
+import { IsDecimal } from "class-validator";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
@@ -9,7 +10,7 @@ export class Files {
     @PrimaryGeneratedColumn('uuid')
     id:string;
 
-    @Column()
+    @Column(IsDecimal)
     weight: number;
 
     @Column()
