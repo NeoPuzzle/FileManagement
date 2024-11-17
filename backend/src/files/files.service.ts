@@ -12,6 +12,8 @@ export class FilesService {
 
     async createFile(createFileDto: CreateFileDto): Promise<Files> {
         const newFile = this.filesRepository.create(createFileDto);
+        console.log(newFile);
+        
         return this.filesRepository.save(newFile);
     }
 
@@ -34,7 +36,8 @@ export class FilesService {
 
     async calculateAccumulated() {
         const files = await this.filesRepository.find();
-        const totalWeight = files.reduce((sum, file) => sum + file.weight, 0)
+
+        const totalWeight = files.reduce((sum, file) => sum + parseFloat(file.weight.toString()), 0)
         const totalQuantity = files.reduce((sum, file) => sum + file.quantity, 0)
         return { totalWeight, totalQuantity };
     }
