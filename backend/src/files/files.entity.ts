@@ -10,7 +10,7 @@ export class Files {
     @PrimaryGeneratedColumn('uuid')
     id:string;
 
-    @Column(IsDecimal)
+    @Column('decimal', { precision: 5, scale: 2 })
     weight: number;
 
     @Column()

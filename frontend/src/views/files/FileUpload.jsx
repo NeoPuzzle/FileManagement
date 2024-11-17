@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { createFile } from "../../api/files";
-import { useNavigate } from "react-router-dom";
+import { createFile, getFiles } from "../../api/files";
+import { replace, useNavigate } from "react-router-dom";
 
 const FileUpload = () => {
   const [fileDetails, setFileDetails] = useState({
     name: "",
     type: "",
-    size: 0,
+    weight: 0,
     quantity: 1,
   });
 
@@ -18,19 +18,19 @@ const FileUpload = () => {
     if (file) {
       const name = file.name;
       const type = name.split(".").pop(); 
-      const size = file.size / (1024 * 1024); 
+      const weight = file.size / (1024 * 1024); 
 
       setFileDetails({
         name,
         type,
-        size: size.toFixed(2),
+        weight: weight.toFixed(2),
         quantity: 1,
       });
     }
   };
 
   const handleUpload = async () => {
-    if (!fileDetails.type || fileDetails.size <= 0) {
+    if (!fileDetails.type || fileDetails.weight <= 0) {
       alert("Selecciona un achivo valido")
       return
     }
@@ -41,23 +41,24 @@ const FileUpload = () => {
     }
 
     try {
-      const fileData =  {
+      const fileData = {
       type: fileDetails.type,
-      weight: Number(fileDetails.size),
+      weight: Number(fileDetails.weight),
       quantity: Number(fileDetails.quantity)
       };
-
+    
       console.log("Estado del archivo: ",fileData);
-      const response = createFile(fileData);
+      const response =  createFile(fileData);
 
       if (response) {
         alert("archivo subido exitosamente!!!");
-        navigate("/files");
-        
+        getFiles();
+        navigate("/");
+
         setFileDetails({
           name: "",
           type: "",
-          size: 0,
+          weight: 0,
           quantity: 1,
         });
       }
@@ -91,7 +92,7 @@ const FileUpload = () => {
               <strong>Tipo:</strong> {fileDetails.type}
             </li>
             <li className="list-group-item">
-              <strong>Tamaño:</strong> {fileDetails.size} MB
+              <strong>Tamaño:</strong> {fileDetails.weight} MB
             </li>
             <li className="list-group-item">
               <strong>Cantidad:</strong> {fileDetails.quantity} archivo(s)
