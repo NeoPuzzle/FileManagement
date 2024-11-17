@@ -58,5 +58,17 @@ export const deleteFile = async (id) => {
     }
 };
 
+export const getFilesAccumulated = async () => {
+    try {
+        const response = await axiosInstance.get("/files/accumulated");
+        console.log("Rpta: ", response.data);
+        
+        return response.data;
+    } catch (error) {
+        console.error("Error para cargar archivos: ", error);
+        throw error;
+    }
+};
+
 
 

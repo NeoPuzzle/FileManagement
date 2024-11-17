@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './views/login/login';
 import FileList from './views/files/FilesList';
 import FileUpload from './views/files/FileUpload';
+import FilesPage from './views/files/FilesPage';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <NavBar/>
     <div className="content">
     <Routes>
+    <Route path="/" element={<FilesPage />} />
       <Route path="/login" element={<Login />}/>
       <Route path='/files' element={<FileList/>} />
       <Route path='/files/create' element={<FileUpload/>}/>
