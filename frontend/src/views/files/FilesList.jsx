@@ -10,13 +10,14 @@ const FileList = () => {
     const fetchFiles = async () => {
       try {
         const filesData = await getFiles();
-        setFiles(filesData);
-        console.log(filesData);
+          setFiles(filesData);
+          console.log(filesData);
         
       } catch (error) {
         console.error("Error obteniendo los archivos", error);
       }
     };
+    
     fetchFiles();
   }, []);
 
@@ -31,7 +32,6 @@ const FileList = () => {
 
   return (
     <div>
-      <h2>Archivos</h2>
       <button className="btn btn-primary" onClick={() => navigate("/files/create")}>Crear archivo</button>
       <table className="table table-striped table-bordered">
         <thead>
