@@ -24,6 +24,7 @@ describe('FilesController', () => {
           useValue: {
             // canActivate: jest.fn(() => true),
             createFile: jest.fn(),
+            getFiles: jest.fn()
           }
         },
         JwtService,
@@ -62,6 +63,16 @@ describe('FilesController', () => {
     .send(createFileDto)
     .expect(201, result);
 
+  });
+
+  it('deberia retornar una lista de archivos', async () => {
+    const result = [{id:'1', type:'pdf', weight: 2.1, quantity:2}];
+    jest.spyOn(service, 'getFiles').mockResolvedValue(result);
+
+    return request(app.getHttpServer())
+    .get('/files')
+    .set('authorization', `Bearer ${validToken}`)
+    .expect(200, result);
   });
 
   afterAll(async () => {
